@@ -41,6 +41,7 @@ void Bluetooth_scan(uint16_t Size)
 	if(judge(data,"turnr",5))motor_turnright(speed);
 	if(judge(data,"antiturnl",9))motor_turnleft(-speed);
 	if(judge(data,"antiturnr",9))motor_turnright(-speed);
+	if(judge(data,"default",7))speed=80;
 	HAL_UARTEx_ReceiveToIdle_DMA(&huart1, data, sizeof(data));
 	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
 }
